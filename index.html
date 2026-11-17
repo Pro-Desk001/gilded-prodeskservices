@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ProDesk Kenya – Typing, CVs, Web & Social Media Help</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f6f2;--ink:#14281f;--card:#ffffff;--red:#c8342b;--gold:#f2b134;--muted:#4d6157;--line:#cfdcd3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c16;--ink:#eaf3ed;--card:#172a21;--muted:#a3b8ac;--line:#2a4034}}
+:root[data-theme="dark"]{--bg:#0f1c16;--ink:#eaf3ed;--card:#172a21;--muted:#a3b8ac;--line:#2a4034}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.55}
+.stripe{height:14px;background:repeating-linear-gradient(90deg,var(--red) 0 28px,var(--gold) 28px 44px,var(--ink) 44px 52px)}
+main{max-width:720px;margin:0 auto;padding:0 20px 48px}
+h1{font-size:clamp(2.4rem,9vw,3.8rem);line-height:1.02;font-weight:800;margin:40px 0 14px;letter-spacing:-.02em}
+h2{font-size:1.5rem;margin:44px 0 14px}
+p{margin:0 0 14px;max-width:60ch}
+.lead{font-size:1.15rem;color:var(--muted)}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-weight:600;padding:14px 22px;border-radius:999px}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.grid{display:grid;gap:12px}
+.svc{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--gold);padding:16px 18px;border-radius:6px}
+.svc b{display:block;font-size:1.1rem}
+.svc span{color:var(--muted)}
+.price{float:right;font-weight:800;color:var(--red)}
+ul{padding-left:20px;margin:0}
+li{margin-bottom:8px}
+footer{color:var(--muted);font-size:.9rem;margin-top:40px}
+.order{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:14px}
+.order label{font-weight:600;display:grid;gap:6px}
+.order input,.order select,.order textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:12px;width:100%}
+.order input:focus-visible,.order select:focus-visible,.order textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.order button{border:0;cursor:pointer;font:inherit;font-weight:600}
+#msg{color:var(--red);margin:0;min-height:1.4em}
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+<main>
+<h1>ProDesk Kenya</h1>
+<p class="lead">Typing, CVs, simple websites and social media setup. Done on time, paid for after the work is agreed, never before.</p>
+<a class="btn" href="https://wa.me/254737147036?text=Hi%20ProDesk%20Kenya%2C%20I%20need%20help%20with...">Chat on WhatsApp</a>
+
+<h2>What I do</h2>
+<div class="grid">
+<div class="svc"><span class="price">from KSh 300</span><b>Typing and data entry</b><span>Documents, forms and spreadsheets cleaned up and typed fast.</span></div>
+<div class="svc"><span class="price">from KSh 500</span><b>CV and cover letters</b><span>A clear one-page CV that gets read, plus a matching cover letter.</span></div>
+<div class="svc"><span class="price">from KSh 1,500</span><b>Simple websites</b><span>A one-page site for your business or portfolio that works on phones.</span></div>
+<div class="svc"><span class="price">from KSh 1,000</span><b>Social media setup</b><span>Profiles, bios and a posting plan for your small business.</span></div>
+</div>
+
+<h2>Place an order</h2>
+<div class="order">
+<label>Your name<input id="n" type="text" autocomplete="name"></label>
+<label>Service<select id="s"><option>Typing and data entry</option><option>CV and cover letter</option><option>Simple website</option><option>Social media setup</option></select></label>
+<label>What do you need?<textarea id="d" rows="3"></textarea></label>
+<label>Deadline<input id="t" type="text" placeholder="e.g. Friday"></label>
+<p id="msg"></p>
+<button class="btn" type="button" onclick="sendOrder()">Send order on WhatsApp</button>
+</div>
+
+<h2>How it works</h2>
+<ul>
+<li>Message me what you need and your deadline.</li>
+<li>I send a clear price and delivery time.</li>
+<li>For bigger jobs, you pay half to start and half on delivery, by M-Pesa.</li>
+<li>I deliver, you check it, and I fix anything that's off.</li>
+</ul>
+
+<h2>About ProDesk</h2>
+<p>ProDesk Kenya is a small independent service. Only a few jobs are taken on at a time, so each one gets proper attention.</p>
+<a class="btn" href="https://wa.me/254737147036?text=Hi%20ProDesk%20Kenya%2C%20I%20need%20help%20with...">Start a job</a>
+
+<footer>ProDesk Kenya · Prices are starting rates and depend on the job.</footer>
+</main>
+<script>
+function sendOrder(){
+ var v=function(i){return document.getElementById(i).value.trim()};
+ var msg=document.getElementById('msg');
+ if(!v('d')){msg.textContent='Add a short description of the job first.';return}
+ msg.textContent='';
+ var m='Hi ProDesk Kenya, I would like to place an order.\nName: '+v('n')+'\nService: '+v('s')+'\nJob: '+v('d')+'\nDeadline: '+v('t');
+ window.open('https://wa.me/254737147036?text='+encodeURIComponent(m),'_blank');
+}
+</script>
+</body>
+</html>
